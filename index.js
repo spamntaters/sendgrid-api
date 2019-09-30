@@ -11,7 +11,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 app.use(bodyParser.json());
 
 // Perhaps with a nodejs templating engine down the line we can do /templates/:templateName
-app.post('/templates', (req, res) => {
+app.post('/templates/:templateID', (req, res) => {
     const msg = {
         to: req.body.recipient,
         from: req.body.sender,
@@ -20,7 +20,7 @@ app.post('/templates', (req, res) => {
          * d-2f299cb6611e4054ab4ced10df8f9af2 Template01: One column
          * d-a624e35c613740328678d97b6eeb829b Template02: Two Column
          */
-        templateId: req.body.templateID,
+        templateId: req.params.templateID,
         dynamic_template_data: {
           username: req.body.username,
           body: req.body.body,
