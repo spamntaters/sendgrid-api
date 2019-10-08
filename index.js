@@ -5,7 +5,7 @@ const sgMail = require('@sendgrid/mail');
 const app = express()
 const port = 3000;
 //  Pulls in API key from env variable source the file from terminal.
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setApiKey('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');
 
 
 app.use(bodyParser.json());
