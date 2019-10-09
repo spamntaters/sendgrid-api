@@ -5,8 +5,8 @@ const sgMail = require('@sendgrid/mail');
 const app = express()
 const port = 3000;
 //  Pulls in API key from env variable source the file from terminal.
-sgMail.setApiKey('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');
-
+// sgMail.setApiKey('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');
+sgMail.setApiKey('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');
 
 app.use(bodyParser.json());
 
@@ -17,8 +17,8 @@ app.post('/templates/:templateID', (req, res) => {
         from: req.body.sender,
         subject: req.body.recipient,
         /* Possible template IDs at the moment:
-         * d-2f299cb6611e4054ab4ced10df8f9af2 Template01: One column
-         * d-a624e35c613740328678d97b6eeb829b Template02: Two Column
+         * d-7537e4854e2c485d8f9cd2c6d27e77bc Template01: One column
+         * d-28c0459b7d944631a02875863e032181 Template02: Two Column
          */
         templateId: req.params.templateID,
         dynamic_template_data: {
